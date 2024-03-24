@@ -219,35 +219,35 @@ function startRendering() {
   });
 }
 // START
-// const videoIntro = document.getElementById("videoIntro");
-// videoIntro.addEventListener("ended", function () {
-//   console.log("Video Intro Ended");
-// });
-// setTimeout(() => {
-//   videoIntro.hidden = true;
-//   onStart().then(() => {
-//     // onStart đã hoàn thành, tiếp theo gọi onLoadTexture
-//     setTimeout(() => {
-//       onLoadTexture().then(() => {
-//         // Tất cả texture đã được load, tiếp theo gọi onApplyTexture
-//         setTimeout(() => {
-//           onApplyTexture();
-//         }, 500);
-//       });
-//     }, 1000);
-//   });
-// }, 3700);
-onStart().then(() => {
-  // onStart đã hoàn thành, tiếp theo gọi onLoadTexture
-  setTimeout(() => {
-    onLoadTexture().then(() => {
-      // Tất cả texture đã được load, tiếp theo gọi onApplyTexture
-      setTimeout(() => {
-        onApplyTexture();
-      }, 500);
-    });
-  }, 1000);
+const videoIntro = document.getElementById("videoIntro");
+videoIntro.addEventListener("ended", function () {
+  console.log("Video Intro Ended");
 });
+setTimeout(() => {
+  videoIntro.hidden = true;
+  onStart().then(() => {
+    // onStart đã hoàn thành, tiếp theo gọi onLoadTexture
+    setTimeout(() => {
+      onLoadTexture().then(() => {
+        // Tất cả texture đã được load, tiếp theo gọi onApplyTexture
+        setTimeout(() => {
+          onApplyTexture();
+        }, 500);
+      });
+    }, 1000);
+  });
+}, 3700);
+// onStart().then(() => {
+//   // onStart đã hoàn thành, tiếp theo gọi onLoadTexture
+//   setTimeout(() => {
+//     onLoadTexture().then(() => {
+//       // Tất cả texture đã được load, tiếp theo gọi onApplyTexture
+//       setTimeout(() => {
+//         onApplyTexture();
+//       }, 500);
+//     });
+//   }, 1000);
+// });
 function animateMaterialOpacity(duration) {
   scene.traverse(function (object) {
     if (object.material) {
